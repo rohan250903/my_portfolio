@@ -5,50 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
     <style>
-     body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #1c1c1c;
-    color: white;
-    position: relative;
-}
-.container {
-    text-align: center;
-    padding: 20px;
-    position: relative;
-    z-index: 1; /* Make sure text is above overlay */
-}
-/* Background image with overlay */
-body::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('roh.jpg'); /* Add your background image */
-    background-size: cover;
-    background-position: center;
-    z-index: 0;
-    opacity: 0.3; /* Adjust this for how much you want to fade the image */
-    background-color: rgba(0, 0, 0, 0.9)
-   
-}
-        /* Portfolio Title in the top left */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #1c1c1c;
+            color: white;
+            position: relative;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        /* Background image with overlay */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('roh.jpg'); /* Add your background image */
+            background-size: cover;
+            background-position: center;
+            z-index: 0;
+            opacity: 0.3; /* Adjust this for how much you want to fade the image */
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+        /* Portfolio Title */
         .portfolio-title {
-    position: absolute;
-    top: 10px;
-    left: 20px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #f39c12;
-    z-index: 1; /* Ensure this is above the background */
-}
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #f39c12;
+            z-index: 1;
+        }
         h1 {
             font-size: 4rem;
             margin-bottom: 10px;
@@ -57,11 +56,11 @@ body::before {
             font-size: 3rem;
             color: #ffffff;
             overflow: hidden;
-            border-right: 2px solid hsl(0, 0%, 100%); /* Optional cursor effect */
+            border-right: 2px solid hsl(0, 0%, 100%);
             white-space: nowrap;
             margin-bottom: 100px;
+            animation: blink 0.7s step-end infinite alternate;
         }
-        /* Explore Now Button */
         .explore-button {
             display: inline-block;
             padding: 10px 20px;
@@ -78,24 +77,35 @@ body::before {
         .explore-button:hover {
             background-color: #9598d0;
         }
-        /* Optional: Blink effect for the cursor */
+        /* Visitor Counter */
+        .visitor-counter {
+    display: flex;               /* Use flexbox for horizontal alignment */
+    align-items: center;        /* Center items vertically */
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    font-size: 1rem;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+        .visitor-counter img {
+            display: block;
+        }
         @keyframes blink {
             50% {
                 border-color: transparent;
             }
         }
-        .designation {
-            animation: blink 0.7s step-end infinite alternate;
-        }
         @media (max-width: 768px) {
             h1 {
                 font-size: 3rem;
             }
-
             .designation {
                 font-size: 1.5rem;
             }
-
             .explore-button {
                 font-size: 0.9rem;
                 padding: 8px 15px;
@@ -105,16 +115,13 @@ body::before {
             h1 {
                 font-size: 2rem;
             }
-
             .designation {
                 font-size: 1rem;
             }
-
             .explore-button {
                 font-size: 0.8rem;
                 padding: 6px 12px;
             }
-
             .portfolio-title {
                 font-size: 1rem;
             }
@@ -122,12 +129,27 @@ body::before {
     </style>
 </head>
 <body>
+    <!-- Visitor Counter -->
+    <div class="visitor-counter">
+      <span style="margin-right: 10px;">Number of Visitors:</span>
+        <a href="https://www.hitwebcounter.com" target="_blank">
+            <img src="https://hitwebcounter.com/counter/counter.php?page=17022916&style=0005&nbdigits=5&type=page&initCount=0" 
+                 title="Counter Widget" alt="Visit counter For Websites" border="0" />
+        </a>
+    </div>
+
+    <!-- Audio Welcome -->
+    <audio id="welcomeAudio" src="Welcome to the portfolio 1.mp3" type="audio/mp3"></audio>
+
+    <!-- Portfolio Title -->
     <div class="portfolio-title">My Portfolio</div>
+
     <div class="container">
         <h1>I am Rohan Ghosh</h1>
         <p class="designation"><span class="text-slider"></span></p>
-        <a href="page.html" class="explore-button">Explore Now</a>
+        <a href="page.html" class="explore-button" id="exploreButton">Explore Now</a>
     </div>
+
     <script>
         const designations = [
             "B-School Student",
@@ -135,33 +157,46 @@ body::before {
             "Former Summer Intern at GSF",
             "Coding Enthusiast",
         ];
-        let index = 0;           // Track current designation index
-        let charIndex = 0;       // Track character index for typing
-        let isDeleting = false;  // Flag to indicate if the text is being deleted
-        const textSlider = document.querySelector(".text-slider"); // Reference to the text area
-        const typingSpeed = 150; // Speed of typing
-        const deletingSpeed = 100; // Speed of deleting
-        const delayBetweenWords = 1000; // Delay before starting to delete the text
+        let index = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const textSlider = document.querySelector(".text-slider");
+        const typingSpeed = 150;
+        const deletingSpeed = 100;
+        const delayBetweenWords = 1000;
+
         function type() {
-            const currentText = designations[index]; // Current designation text
+            const currentText = designations[index];
             if (isDeleting) {
                 textSlider.textContent = currentText.substring(0, charIndex--);
             } else {
                 textSlider.textContent = currentText.substring(0, charIndex++);
             }
             if (!isDeleting && charIndex === currentText.length) {
-                setTimeout(() => {
-                    isDeleting = true;
-                }, delayBetweenWords);
+                setTimeout(() => isDeleting = true, delayBetweenWords);
             }
-            // If the word is fully deleted, move to the next word
             if (isDeleting && charIndex === 0) {
                 isDeleting = false;
-                index = (index + 1) % designations.length; // Go to the next designation
+                index = (index + 1) % designations.length;
             }
             setTimeout(type, isDeleting ? deletingSpeed : typingSpeed);
         }
         type();
+
+        // Play audio when the "Explore Now" button is clicked
+        const exploreButton = document.getElementById('exploreButton');
+        exploreButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            var audio = document.getElementById('welcomeAudio');
+            audio.play().then(() => {
+                setTimeout(() => {
+                    window.location.href = exploreButton.href;
+                }, audio.duration * 1000);
+            }).catch((error) => {
+                console.error("Error playing audio: ", error);
+                window.location.href = exploreButton.href;
+            });
+        });
     </script>
 </body>
 </html>
