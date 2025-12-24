@@ -52,31 +52,37 @@
             font-size: 4rem;
             margin-bottom: 10px;
         }
-        .designation {
-            font-size: 3rem;
-            color: #ffffff;
-            overflow: hidden;
-            border-right: 2px solid hsl(0, 0%, 100%);
-            white-space: nowrap;
-            margin-bottom: 100px;
-            animation: blink 0.7s step-end infinite alternate;
-        }
+    .designation {
+    font-size: 2.2rem;
+    color: #ffffff;
+    text-shadow: 0 0 15px rgba(243,156,18,0.35);
+    overflow: hidden;
+    border-right: 2px solid #fff;
+    white-space: nowrap;
+    margin-bottom: 80px;
+    animation: blink 0.7s step-end infinite alternate;
+}
+
+      
         .explore-button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #87cde5;
-            color: rgb(19, 39, 126);
-            font-weight: bold;
-            font-size: 1rem;
-            border: none;
-            cursor: pointer;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-        .explore-button:hover {
-            background-color: #9598d0;
-        }
+    display: inline-block;
+    padding: 14px 34px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: rgb(19, 39, 126);
+    border-radius: 40px;
+    text-decoration: none;
+    background: #87cde5;
+    background-size: 200%;
+    box-shadow:  #8487c9;
+}
+
+.explore-button:hover {
+    background-position: right;
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: #8083bd;
+}
+
         /* Visitor Counter */
         .visitor-counter {
     display: flex;               /* Use flexbox for horizontal alignment */
@@ -152,17 +158,19 @@
 
     <script>
         const designations = [
-    
-            "Computer Science Engineer",
+            
+            "Computer Science Student",
+            "UI/UX Intern at Mindverge Software Services",
             "Former Summer Intern at GSF",
+           "Team Leader at Viral Fission",
             "Coding Enthusiast",
         ];
         let index = 0;
         let charIndex = 0;
         let isDeleting = false;
         const textSlider = document.querySelector(".text-slider");
-        const typingSpeed = 150;
-        const deletingSpeed = 100;
+        const typingSpeed = 50;
+        const deletingSpeed = 40;
         const delayBetweenWords = 1000;
 
         function type() {
