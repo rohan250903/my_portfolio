@@ -1888,4 +1888,163 @@
       font-size: 0.7rem;
     }
   }
-  
+  /* ===============================
+   TESTIMONIAL HOVER EFFECT
+   =============================== */
+
+/* Smooth transition */
+.testimonials-item .content-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+.testimonials-item .content-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65);
+}
+
+/* Avatar slight zoom on hover */
+.testimonials-avatar-box {
+  transition: transform 0.3s ease;
+}
+
+.testimonials-item .content-card:hover .testimonials-avatar-box {
+  transform: translate(15px, -25px) scale(1.08);
+}
+
+/* Text becomes clearer on hover */
+.testimonials-item .content-card:hover .testimonials-text {
+  color: var(--white-2);
+}
+/* ===============================
+   RESUME HOVER EFFECT
+   =============================== */
+
+/* Education & Experience hover */
+.timeline-item {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-item:hover {
+  transform: translateX(6px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+/* Skills hover */
+.skills-item {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skills-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+/* ===============================
+   DOWNLOAD RESUME – RIGHT SIDE JUMPING ARROW
+   =============================== */
+
+.download-resume {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--white-2);
+  font-weight: 600;
+  position: relative;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* RIGHT SIDE ARROW */
+.resume-arrow {
+  font-size: 18px;
+  color: var(--orange-yellow-crayola);
+  animation: arrowJump 1.2s infinite ease-in-out;
+  display: inline-block;
+}
+
+/* underline animation */
+.download-resume::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: var(--text-gradient-yellow);
+  transition: width 0.3s ease;
+}
+
+/* hover */
+.download-resume:hover {
+  color: var(--orange-yellow-crayola);
+  transform: translateY(-3px);
+}
+
+.download-resume:hover::after {
+  width: 100%;
+}
+
+/* jumping animation */
+@keyframes arrowJump {
+  0%   { transform: translateY(0); opacity: 0.6; }
+  50%  { transform: translateY(6px); opacity: 1; }
+  100% { transform: translateY(0); opacity: 0.6; }
+}
+
+/* Map hover */
+.mapbox {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mapbox:hover {
+  transform: scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+/* Input hover */
+.form-input {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-input:hover {
+  border-color: rgba(255, 200, 100, 0.5)
+}
+
+/* Focus already exists, but enhance it */
+.form-input:focus {
+  box-shadow: 0 0 0 3px rgba(255, 200, 100, 0.25);
+}
+/* Contact button hover */
+.form-btn {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(255, 200, 100, 0.5);
+}
+/* Social icons hover */
+.social-item .social-link {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-item .social-link:hover {
+  transform: translateY(-3px) scale(1.1);
+  color: var(--orange-yellow-crayola);
+}
+/* Contact items hover */
+.contact-item {
+  transition: transform 0.3s ease;
+}
+
+.sidebar:hover .contact-item:hover {
+  transform: translateX(6px);
+}
+/* Profile image hover */
+.avatar-box img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sidebar:hover .avatar-box img {
+  transform: scale(1.07);
+  box-shadow: 0 0 25px rgba(255, 200, 100, 0.55);
+}
