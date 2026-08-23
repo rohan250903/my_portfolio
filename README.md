@@ -1,4 +1,4 @@
-# ✨ Rohan Ghosh — Developer Portfolio
+
 
 <p align="center">
   <img src="Assets/hero.png" alt="Rohan Ghosh Portfolio" width="900"/>
@@ -180,16 +180,6 @@ Every update pushed to the repository can be deployed through the repository's G
 **Deployment URL:**
 
 👉 https://rohan250903.github.io/my_portfolio/
-
----
-
-## 📸 Preview
-
-<p align="center">
-  <img src="Assets/portfolio-preview.png" alt="Portfolio Preview" width="850"/>
-</p>
-
-> Replace `Assets/portfolio-preview.png` with an actual screenshot from your portfolio.
 
 ---
 
