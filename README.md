@@ -1,13 +1,13 @@
 
 
 <p align="center">
-  <img src=assets/hero.png" alt="Rohan Ghosh Portfolio" width="900"/>
+  <img src=assets/t.png" alt="Rohan Ghosh Portfolio" width="900"/>
 </p>
 
 <h1 align="center">Hi, I'm Rohan Ghosh 👋</h1>
 
 <p align="center">
-  <strong>Software Developer • Web Developer • Tech Enthusiast</strong>
+  <strong>Software Developer • Innovator • Tech Enthusiast • Quick Learner • Achiever</strong>
 </p>
 
 <p align="center">
