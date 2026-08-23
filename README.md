@@ -1,9 +1,5 @@
 
 
-<p align="center">
-  < alt="Rohan Ghosh Portfolio" width="900"/>
-</p>
-
 <h1 align="center">Hi, I'm Rohan Ghosh 👋</h1>
 
 <p align="center">
