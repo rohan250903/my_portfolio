@@ -1,7 +1,7 @@
 
 
 <p align="center">
-  <img src="Assets/hero.png" alt="Rohan Ghosh Portfolio" width="900"/>
+  <img src=assets/hero.png" alt="Rohan Ghosh Portfolio" width="900"/>
 </p>
 
 <h1 align="center">Hi, I'm Rohan Ghosh 👋</h1>
